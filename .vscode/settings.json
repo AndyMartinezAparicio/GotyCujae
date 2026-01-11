@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GotyCUJAE.sln"
+    "dotnet.defaultSolution": "GotyCujae.sln"
 }
