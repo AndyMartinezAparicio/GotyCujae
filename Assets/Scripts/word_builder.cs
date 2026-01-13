@@ -7,7 +7,7 @@ public class WorldBuilder : MonoBehaviour
 
     // Definir el patrón: 0 = pasto, 1 = carretera
     // Ej: [0, 1,1,1,1, 0] → pasto + 4 carreteras + pasto
-    public int[] worldPattern = { 0, 1, 1, 1, 1, 0 };
+    private int[] worldPattern = { 0, 1, 1, 1, 1, 1, 1, 0 };
 
     void Start()
     {
