@@ -169,6 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassRowPrefab: {fileID: 5917092362567621659, guid: 638787d36362f80418583a834e9b1e89, type: 3}
   roadRowPrefab: {fileID: 8790331221935514583, guid: 5953272df8ac84b4bbc47c63de413cc7, type: 3}
+  player: {fileID: 879528318}
+  rowHeight: 1
+  initialRows: 8
+  maxActiveRows: 20
 --- !u!1 &879528315
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,9 +247,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -452674871
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: -1672892825
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1118041917, guid: d2fbc5f0b333554428797a852414a94b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -283,6 +287,7 @@ GameObject:
   - component: {fileID: 1616759312}
   - component: {fileID: 1616759311}
   - component: {fileID: 1616759310}
+  - component: {fileID: 1616759313}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -364,6 +369,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1616759313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616759309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb6f5391820cdc478cd2017f7197f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 879528318}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
