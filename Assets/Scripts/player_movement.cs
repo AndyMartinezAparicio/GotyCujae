@@ -12,9 +12,17 @@ public class Player : MonoBehaviour
     private Vector3 targetPosition;
     private float lastMoveTime = 0f; // Último momento en que se inició un movimiento
 
+    [Header("Sprites por dirección")]
+    public Sprite spriteUp;
+    public Sprite spriteDown;
+    public Sprite spriteLeft;
+    public Sprite spriteRight;
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
         targetPosition = transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -48,12 +56,28 @@ public class Player : MonoBehaviour
             // Guardar el momento en que se inicia este movimiento
             lastMoveTime = Time.time;
 
+            // Cambiar el sprite según la dirección
+            UpdateSprite(direction);
+
             // Calcular la nueva posición objetivo (una casilla en esa dirección)
             targetPosition = transform.position + new Vector3(direction.x, direction.y, 0);
 
             // Iniciar el movimiento suave
             StartCoroutine(MoveTo(targetPosition));
         }
+    }
+
+
+    void UpdateSprite(Vector2 direction)
+    {
+        if (direction == Vector2.up)
+            spriteRenderer.sprite = spriteUp;
+        else if (direction == Vector2.down)
+            spriteRenderer.sprite = spriteDown;
+        else if (direction == Vector2.left)
+            spriteRenderer.sprite = spriteLeft;
+        else if (direction == Vector2.right)
+            spriteRenderer.sprite = spriteRight;
     }
 
     // Mover suavemente al jugador de una casilla a la siguiente, durante un tiempo controlado (moveTime), sin teletransportarlo.
