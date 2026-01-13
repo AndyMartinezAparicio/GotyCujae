@@ -2,19 +2,26 @@ using UnityEngine;
 
 public class RoadRowSpawner : MonoBehaviour
 {
+    [Header("Spawn")]
     public GameObject carPrefab;
-    public float minSpawnDelay = 1f;
-    public float maxSpawnDelay = 3f;
+    public float minSpawnDelay = 13;
+    public float maxSpawnDelay = 20f;
 
-    public bool moveRight = true; // Dirección de los autos en esta fila
-    public float spawnXOffset = 10f; // Desde dónde entran (ej. -10 o +10)
+    [Header("Movement")]
+    public bool moveRight = true;  // Dirección de los autos en esta fila
+    public float minSpeed = 3f;
+    public float maxSpeed = 7f; 
+    
 
-    private float nextSpawnTime = 0f;
+    [Header("Despawn")]
+    public float despawnDistance = 15f;
+    private float nextSpawnTime;
+
 
     void Start()
     {
         // Programar primera aparición
-        nextSpawnTime = Time.time + Random.Range(minSpawnDelay, maxSpawnDelay);
+        ScheduleNextSpawn();
     }
 
     void Update()
@@ -22,14 +29,20 @@ public class RoadRowSpawner : MonoBehaviour
         if (Time.time >= nextSpawnTime)
         {
             SpawnCar();
-            nextSpawnTime = Time.time + Random.Range(minSpawnDelay, maxSpawnDelay);
+            ScheduleNextSpawn();
         }
     }
 
     void SpawnCar()
     {
+        if (carPrefab == null)
+        {
+            Debug.LogError("Car prefab no asignado en " + gameObject.name);
+            return;
+        }
+        
         // Posición de aparición: fuera de la pantalla, en el lado correcto
-        float spawnX = moveRight ? -spawnXOffset : spawnXOffset;
+        float spawnX = moveRight ? -despawnDistance : despawnDistance;
         Vector3 spawnPos = new Vector3(spawnX, transform.position.y, 0);
 
         GameObject carObj = Instantiate(carPrefab, spawnPos, Quaternion.identity);
@@ -37,8 +50,13 @@ public class RoadRowSpawner : MonoBehaviour
         if (car != null)
         {
             car.moveRight = moveRight;
-            // Puedes ajustar velocidad por fila si quieres:
-            // car.speed = Random.Range(2f, 5f);
+            car.speed = Random.Range(minSpeed, maxSpeed);
+            car.despawnDistance = despawnDistance;
         }
+    }
+
+        void ScheduleNextSpawn()
+    {
+        nextSpawnTime = Time.time + Random.Range(minSpawnDelay, maxSpawnDelay);
     }
 }
