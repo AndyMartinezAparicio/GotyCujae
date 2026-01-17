@@ -7,11 +7,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("UI Elements")]
+    [Header("UI Game over")]
     public GameObject gameOverPanel;
     public TextMeshProUGUI finalScoreText;
     public TextMeshProUGUI highScoreText;
     public Button restartButton;
+
+    [Header("In-Game UI")]
+    public GameObject scoreUI;
+
 
     [Header("Player Reference")]
     public GameObject player;
@@ -57,9 +61,12 @@ public class GameManager : MonoBehaviour
             Player playerScript = player.GetComponent<Player>();
             if (playerScript != null)
             {
-                Destroy(playerScript); // O puedes desactivarlo de otra forma
+                playerScript.enabled = false; // O puedes desactivarlo de otra forma
             }
         }
+
+        if (scoreUI != null)
+            scoreUI.SetActive(false);
 
         // Mostrar panel de Game Over
         if (gameOverPanel != null)
@@ -69,11 +76,8 @@ public class GameManager : MonoBehaviour
             // Obtener puntuaciones
             if (scoreManager != null)
             {
-                int currentScore = Mathf.FloorToInt(player.transform.position.y);
-                int highScore = PlayerPrefs.GetInt("HighScore", 0);
-
-                finalScoreText.text = "Score: " + currentScore;
-                highScoreText.text = "Best: " + highScore;
+                finalScoreText.text = "Score: " + scoreManager.CurrentScore;;
+                highScoreText.text = "Best: " + scoreManager.HighScore;
             }
         }
 

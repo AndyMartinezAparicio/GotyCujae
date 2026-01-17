@@ -12,6 +12,10 @@ public class ScoreManager : MonoBehaviour
     private int maxY = 0;
     private int highScore = 0;
 
+// Propiedades para acceder a las puntuaciones desde otros scripts
+    public int CurrentScore => maxY;
+    public int HighScore => highScore;
+
     void Start()
     {
         highScore = PlayerPrefs.GetInt("HighScore", 0);
