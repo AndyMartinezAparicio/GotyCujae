@@ -14,7 +14,7 @@ public class RoadRowSpawner : MonoBehaviour
     
 
     [Header("Despawn")]
-    public float despawnDistance = 15f;
+    private float despawnDistance = 8f;
     private float nextSpawnTime;
 
 

@@ -4,7 +4,7 @@ public class Car : MonoBehaviour
 {
     public float speed = 3f;
     public bool moveRight = true;
-    public float despawnDistance = 15f;
+    public float despawnDistance = 8f;
 
     void Update()
     {
