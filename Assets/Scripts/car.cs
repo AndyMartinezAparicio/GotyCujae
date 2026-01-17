@@ -17,4 +17,19 @@ public class Car : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Detecta colisión con el jugador
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("asdas");
+            // Busca el GameManager y activa el Game Over
+            GameManager gameManager = FindObjectOfType<GameManager>();
+            if (gameManager != null)
+            {
+                gameManager.GameOver();
+            }
+        }
+    }
+
 }

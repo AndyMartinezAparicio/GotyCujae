@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Verificar si el juego terminó
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null && gameManager.IsGameOver())
+            return;
+
         // Si ya está en movimiento, no hacer nada aún
         if (isMoving)
             return;

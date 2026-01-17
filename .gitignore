@@ -76,3 +76,6 @@ Packages
 ProjectSettings
 
 ProjectSettings/SceneTemplateSettings.json
+
+*.slnx
+Assets/TextMesh Pro/
