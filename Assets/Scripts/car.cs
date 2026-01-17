@@ -5,6 +5,7 @@ public class Car : MonoBehaviour
     public float speed = 3f;
     public bool moveRight = true;
     public float despawnDistance = 8f;
+    
 
     void Update()
     {
@@ -22,7 +23,6 @@ public class Car : MonoBehaviour
         // Detecta colisión con el jugador
         if (other.CompareTag("Player"))
         {
-            Debug.Log("asdas");
             // Busca el GameManager y activa el Game Over
             GameManager gameManager = FindObjectOfType<GameManager>();
             if (gameManager != null)
