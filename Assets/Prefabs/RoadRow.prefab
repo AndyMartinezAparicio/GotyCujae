@@ -353,13 +353,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6573882e6550c195a31b4b32398c90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefab: {fileID: 332576413172452064, guid: 89f0096a49feca64187720b63e09c97a, type: 3}
+  carPrefabs:
+  - {fileID: 332576413172452064, guid: 3665606bb82e7054aa0549f2a1bcbd23, type: 3}
+  - {fileID: 332576413172452064, guid: 7e54a84a34eb735438857e9cae8ae258, type: 3}
+  - {fileID: 332576413172452064, guid: 81a1656ace3116a429629d47c23c78ba, type: 3}
+  - {fileID: 332576413172452064, guid: 89f0096a49feca64187720b63e09c97a, type: 3}
   minSpawnDelay: 1
   maxSpawnDelay: 3
   moveRight: 1
   minSpeed: 3
   maxSpeed: 7
-  despawnDistance: 15
 --- !u!1 &8940363530633017187
 GameObject:
   m_ObjectHideFlags: 0

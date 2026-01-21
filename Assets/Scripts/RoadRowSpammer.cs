@@ -3,7 +3,7 @@ using UnityEngine;
 public class RoadRowSpawner : MonoBehaviour
 {
     [Header("Spawn")]
-    public GameObject carPrefab;
+    public GameObject[] carPrefabs;
     public float minSpawnDelay = 13;
     public float maxSpawnDelay = 20f;
 
@@ -14,7 +14,7 @@ public class RoadRowSpawner : MonoBehaviour
     
 
     [Header("Despawn")]
-    private float despawnDistance = 8f;
+    private float despawnDistance = 9f;
     private float nextSpawnTime;
 
 
@@ -35,17 +35,20 @@ public class RoadRowSpawner : MonoBehaviour
 
     void SpawnCar()
     {
-        if (carPrefab == null)
+        if (carPrefabs == null || carPrefabs.Length == 0)
         {
-            Debug.LogError("Car prefab no asignado en " + gameObject.name);
+            Debug.LogError("No hay prefabs de autos asignados en " + gameObject.name);
             return;
         }
+        // Elegir un prefab aleatorio
+        GameObject selectedCar  = carPrefabs[Random.Range(0, carPrefabs.Length)];
         
         // Posición de aparición: fuera de la pantalla, en el lado correcto
         float spawnX = moveRight ? -despawnDistance : despawnDistance;
         Vector3 spawnPos = new Vector3(spawnX, transform.position.y, 0);
 
-        GameObject carObj = Instantiate(carPrefab, spawnPos, Quaternion.identity);
+        GameObject carObj = Instantiate(selectedCar, spawnPos, Quaternion.identity);
+
         Car car = carObj.GetComponent<Car>();
         if (car != null)
         {
