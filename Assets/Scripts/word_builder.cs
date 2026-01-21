@@ -77,6 +77,17 @@ public class WorldBuilder : MonoBehaviour
         Vector3 position = new Vector3(0, yIndex * rowHeight, 0);
 
         GameObject row = Instantiate(prefab, position, Quaternion.identity);
+        
+        // Si es carretera, asignar dirección random
+        if (type == 1)
+        {
+            RoadRowSpawner spawner = row.GetComponent<RoadRowSpawner>();
+            if (spawner != null)
+            {
+                spawner.moveRight = Random.value > 0.5f;
+            }
+        }
+        
         activeRows.Enqueue(row);
     }
 }
