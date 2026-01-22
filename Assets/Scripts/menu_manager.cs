@@ -18,6 +18,9 @@ public class menu_manager : MonoBehaviour
     public AudioSource musicaFondo;
     public AudioSource efectosAudio;
 
+    public Sprite spriteHover;
+    public Sprite spriteNormal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,11 @@ public class menu_manager : MonoBehaviour
     public void BotonStart()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void BotonBack()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void BotonSalir()
@@ -71,5 +79,23 @@ public class menu_manager : MonoBehaviour
 
         // Cambiar el icono del toggle 
         toggleMusicaBackground.sprite = activo ? spriteAudioOn : spriteAudioOff;
+    }
+
+    // --------------------------------------------------------- 
+    // MÉTODOS PARA HOVER
+    // --------------------------------------------------------- 
+
+    // Cuando el mouse entra en el botón  
+    public void OnHoverEnter(Image botonImage)
+    {
+        if (spriteHover != null)
+            botonImage.sprite = spriteHover;
+    }
+
+    // Cuando el mouse sale del botón 
+    public void OnHoverExit(Image botonImage)
+    {
+        if (spriteNormal != null)
+            botonImage.sprite = spriteNormal;
     }
 }
