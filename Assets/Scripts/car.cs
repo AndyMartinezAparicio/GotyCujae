@@ -4,8 +4,6 @@ public class Car : MonoBehaviour
 {
     public float speed = 3f;
     public bool moveRight = true;
-
-    public float despawnDistance = 8f;
     
     public AudioSource sonido_carro_choque;
 
