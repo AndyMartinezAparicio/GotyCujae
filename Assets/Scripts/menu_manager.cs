@@ -75,10 +75,10 @@ public class menu_manager : MonoBehaviour
     public void ToggleMusica(bool activo)
     {
         // Activar o desactivar la música 
-        musicaFondo.mute = !activo;
+        musicaFondo.mute = !musicaFondo.mute;
 
         // Cambiar el icono del toggle 
-        toggleMusicaBackground.sprite = activo ? spriteAudioOn : spriteAudioOff;
+        toggleMusicaBackground.sprite = !musicaFondo.mute ? spriteAudioOn : spriteAudioOff;
     }
 
     // --------------------------------------------------------- 

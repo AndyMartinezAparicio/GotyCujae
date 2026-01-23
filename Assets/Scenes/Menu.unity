@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 296984488}
   - component: {fileID: 296984487}
   - component: {fileID: 296984486}
+  - component: {fileID: 296984489}
   m_Layer: 5
   m_Name: Boton Start
   m_TagString: Untagged
@@ -256,6 +257,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296984484}
   m_CullTransparentMesh: 1
+--- !u!114 &296984489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296984484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1000247724}
+          m_TargetAssemblyTypeName: menu_manager, Assembly-CSharp
+          m_MethodName: OnHoverEnter
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 296984487}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1000247724}
+          m_TargetAssemblyTypeName: menu_manager, Assembly-CSharp
+          m_MethodName: OnHoverExit
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 296984487}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &368281166
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +916,7 @@ GameObject:
   - component: {fileID: 981569447}
   - component: {fileID: 981569446}
   - component: {fileID: 981569445}
+  - component: {fileID: 981569448}
   m_Layer: 5
   m_Name: Boton Creditos
   m_TagString: Untagged
@@ -991,6 +1038,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981569443}
   m_CullTransparentMesh: 1
+--- !u!114 &981569448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981569443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1000247724}
+          m_TargetAssemblyTypeName: menu_manager, Assembly-CSharp
+          m_MethodName: OnHoverEnter
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 981569446}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1000247724}
+          m_TargetAssemblyTypeName: menu_manager, Assembly-CSharp
+          m_MethodName: OnHoverExit
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 981569446}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1000247723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,8 +1120,8 @@ MonoBehaviour:
   spriteAudioOff: {fileID: -1194938464, guid: 3443bcec6fdd6dd4f836f28222b66f9d, type: 3}
   musicaFondo: {fileID: 1870741417}
   efectosAudio: {fileID: 0}
-  spriteHover: {fileID: 1536471676, guid: 6e065a6aab38dfc4eb5a9c8759857cf1, type: 3}
-  spriteNormal: {fileID: 0}
+  spriteHover: {fileID: 21300000, guid: 8e1047a1410f01b4eb96ecc32226b542, type: 3}
+  spriteNormal: {fileID: 21300000, guid: bf82a991629715c468999ef5bdc191b3, type: 3}
 --- !u!4 &1000247725
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,6 +1453,7 @@ GameObject:
   - component: {fileID: 1710720668}
   - component: {fileID: 1710720667}
   - component: {fileID: 1710720666}
+  - component: {fileID: 1710720669}
   m_Layer: 5
   m_Name: Boton Salir
   m_TagString: Untagged
@@ -1482,6 +1575,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710720664}
   m_CullTransparentMesh: 1
+--- !u!114 &1710720669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710720664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1000247724}
+          m_TargetAssemblyTypeName: menu_manager, Assembly-CSharp
+          m_MethodName: OnHoverEnter
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1710720667}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1000247724}
+          m_TargetAssemblyTypeName: menu_manager, Assembly-CSharp
+          m_MethodName: OnHoverExit
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1710720667}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1821396567
 GameObject:
   m_ObjectHideFlags: 0
