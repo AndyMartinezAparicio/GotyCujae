@@ -4,9 +4,20 @@ public class Car : MonoBehaviour
 {
     public float speed = 3f;
     public bool moveRight = true;
+
     public float despawnDistance = 8f;
     
     public AudioSource sonido_carro_choque;
+
+    public float despawnDistance = 9f;
+
+    void Start()
+    {
+        // Flip del auto según dirección
+        Vector3 scale = transform.localScale;
+        scale.x = moveRight ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+        transform.localScale = scale;
+    }
 
     void Update()
     {
