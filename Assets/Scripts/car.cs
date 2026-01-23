@@ -4,7 +4,7 @@ public class Car : MonoBehaviour
 {
     public float speed = 3f;
     public bool moveRight = true;
-    
+
     public AudioSource sonido_carro_choque;
 
     public float despawnDistance = 9f;
@@ -45,20 +45,20 @@ public class Car : MonoBehaviour
             {
                 player.Scream();
             }
-            
+
             // Empujon
             Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
-                if (playerRb != null)
-                {
-                    Vector2 hitDir = moveRight ? Vector2.right : Vector2.left;
+            if (playerRb != null)
+            {
+                Vector2 hitDir = moveRight ? Vector2.right : Vector2.left;
 
-                    playerRb.linearVelocity = Vector2.zero;
-                    playerRb.angularVelocity = 0f;
+                playerRb.velocity = Vector2.zero;  // La propiedad anterior de velociy era linear velocity
+                playerRb.angularVelocity = 0f;
 
-                    playerRb.AddForce(hitDir * 8f, ForceMode2D.Impulse);
-                    playerRb.AddTorque(-hitDir.x * 500f, ForceMode2D.Impulse);
-                }
-            
+                playerRb.AddForce(hitDir * 8f, ForceMode2D.Impulse);
+                playerRb.AddTorque(-hitDir.x * 500f, ForceMode2D.Impulse);
+            }
+
             // Busca el GameManager y activa el Game Over
             GameManager gameManager = FindObjectOfType<GameManager>();
             if (gameManager != null)
