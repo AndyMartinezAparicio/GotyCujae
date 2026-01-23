@@ -6,6 +6,7 @@ public class Car : MonoBehaviour
     public bool moveRight = true;
     public float despawnDistance = 8f;
     
+    public AudioSource sonido_carro_choque;
 
     void Update()
     {
@@ -23,6 +24,32 @@ public class Car : MonoBehaviour
         // Detecta colisión con el jugador
         if (other.CompareTag("Player"))
         {
+            // Sonido del carro al chocar
+            if (sonido_carro_choque != null)
+            {
+                sonido_carro_choque.Play();
+            }
+
+            // GRITO 
+            Player player = other.GetComponent<Player>();
+            if (player != null)
+            {
+                player.Scream();
+            }
+            
+            // Empujon
+            Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
+                if (playerRb != null)
+                {
+                    Vector2 hitDir = moveRight ? Vector2.right : Vector2.left;
+
+                    playerRb.linearVelocity = Vector2.zero;
+                    playerRb.angularVelocity = 0f;
+
+                    playerRb.AddForce(hitDir * 8f, ForceMode2D.Impulse);
+                    playerRb.AddTorque(-hitDir.x * 500f, ForceMode2D.Impulse);
+                }
+            
             // Busca el GameManager y activa el Game Over
             GameManager gameManager = FindObjectOfType<GameManager>();
             if (gameManager != null)

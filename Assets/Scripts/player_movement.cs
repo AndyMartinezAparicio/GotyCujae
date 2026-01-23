@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public Sprite spriteRight;
     private SpriteRenderer spriteRenderer;
 
+    public AudioSource scream;
+    
     void Start()
     {
         targetPosition = transform.position;
@@ -101,5 +103,11 @@ public class Player : MonoBehaviour
 
         transform.position = destination;
         isMoving = false;
+    }
+
+    public void Scream()
+    {
+        if (scream != null && !scream.isPlaying)
+            scream.Play();
     }
 }
