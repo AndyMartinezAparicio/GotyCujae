@@ -52,7 +52,7 @@ public class Car : MonoBehaviour
                 {
                     Vector2 hitDir = moveRight ? Vector2.right : Vector2.left;
 
-                    playerRb.linearVelocity = Vector2.zero;
+                    playerRb.velocity = Vector2.zero;
                     playerRb.angularVelocity = 0f;
 
                     playerRb.AddForce(hitDir * 8f, ForceMode2D.Impulse);
