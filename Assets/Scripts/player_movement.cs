@@ -20,6 +20,10 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     public AudioSource scream;
+
+    [Header("Obstacle Check")]
+    public LayerMask obstacleLayer;
+
     
     void Start()
     {
@@ -68,6 +72,15 @@ public class Player : MonoBehaviour
 
             // Calcular la nueva posición objetivo (una casilla en esa dirección)
             targetPosition = transform.position + new Vector3(direction.x, direction.y, 0);
+
+            // Verificar si hay un obstáculo en la nueva posición
+            Collider2D hitCollider = Physics2D.OverlapBox(targetPosition, Vector2.one * 0.8f, 0f, obstacleLayer);
+
+            if (hitCollider != null)
+            {
+                // Hay un obstáculo, no mover
+                return;
+            }
 
             // Iniciar el movimiento suave
             StartCoroutine(MoveTo(targetPosition));

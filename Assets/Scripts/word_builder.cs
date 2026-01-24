@@ -17,6 +17,17 @@ public class WorldBuilder : MonoBehaviour
 
     private Queue<GameObject> activeRows = new Queue<GameObject>();
 
+    [Header("Obstacles")]
+    public GameObject bache;
+    public GameObject arbol;
+    
+    public int maxTreesPerGrass = 3;
+    public float grassObstacleChance = 0.8f; // 80%
+    public float roadObstacleChance = 0.5f;  // 50%
+
+    private float minX = -8f;
+    private float maxX = 8f;
+
 
     // Definir el patrón: 0 = pasto, 1 = carretera
     // Ej: [0, 1,1,1,1, 0] → pasto + 4 carreteras + pasto
@@ -87,7 +98,49 @@ public class WorldBuilder : MonoBehaviour
                 spawner.moveRight = Random.value > 0.5f;
             }
         }
+
         
         activeRows.Enqueue(row);
+
+        if (type == 0)
+        {
+            SpawnGrassObstacles(row.transform);
+        }
+        else
+        {
+            SpawnRoadObstacle(row.transform);
+        }
+
     }
+
+    void SpawnGrassObstacles(Transform row)
+    {
+        if (Random.value > grassObstacleChance)
+            return;
+
+        int treeCount = Random.Range(1, maxTreesPerGrass + 1);
+
+        for (int i = 0; i < treeCount; i++)
+        {
+            float x = Random.Range(minX, maxX);
+            Vector3 pos = new Vector3(x, row.position.y, 0);
+
+            Instantiate(arbol, pos, Quaternion.identity, row);
+        }
+    }
+
+    void SpawnRoadObstacle(Transform row)
+{
+    if (Random.value > roadObstacleChance)
+        return;
+
+    float x = Random.Range(minX, maxX);
+    Vector3 pos = new Vector3(x, row.position.y, 0);
+
+    Instantiate(bache, pos, Quaternion.identity, row);
+}
+
+
+
+    
 }

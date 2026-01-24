@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -47,6 +47,12 @@ TagManager:
   - name: Ground
     uniqueID: 57414451
     locked: 0
+  - name: obstacleBache
+    uniqueID: 1009464457
+    locked: 0
   - name: Actors
     uniqueID: 2622074471
+    locked: 0
+  - name: Obstaclearbol
+    uniqueID: 566251495
     locked: 0
