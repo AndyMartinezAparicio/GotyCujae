@@ -23,12 +23,15 @@ public class Player : MonoBehaviour
 
     [Header("Obstacle Check")]
     public LayerMask obstacleLayer;
-
     
+    public AudioSource step;
+    public AudioClip stepSound;
+
     void Start()
     {
         targetPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        step = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -53,13 +56,25 @@ public class Player : MonoBehaviour
         Vector2 direction = Vector2.zero;
 
         if (Input.GetKey(KeyCode.UpArrow))
+        {
+            InstanceSoundStep();
             direction = Vector2.up;
+        }
         else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            InstanceSoundStep();
             direction = Vector2.down;
+        }
         else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            InstanceSoundStep();
             direction = Vector2.left;
+        }
         else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            InstanceSoundStep();
             direction = Vector2.right;
+        }
 
         // Si hay una dirección válida...
         if (direction != Vector2.zero)
@@ -122,5 +137,14 @@ public class Player : MonoBehaviour
     {
         if (scream != null && !scream.isPlaying)
             scream.Play();
+    }
+
+    private void InstanceSoundStep()
+    {
+        if (step != null)
+        {
+            step.PlayOneShot(stepSound);
+        }
+
     }
 }
