@@ -40,4 +40,9 @@ public class ScoreManager : MonoBehaviour
             }
         }
     }
+
+    public static int GetHighScore()
+    {
+        return PlayerPrefs.GetInt("HighScore", 0);
+    }
 }

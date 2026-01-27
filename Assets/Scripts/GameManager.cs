@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Reference")]
     public GameObject player;
+
+    [Header("Diálogo Inicial")]
+    public Dialogue initialDialogue;
 
     private bool isGameOver = false;
     private ScoreManager scoreManager;
@@ -47,6 +52,8 @@ public class GameManager : MonoBehaviour
         // Configurar botón de reinicio
         if (restartButton != null)
             restartButton.onClick.AddListener(RestartGame);
+
+        StartCoroutine(ShowInitialDialogue());
     }
 
     public void GameOver()
@@ -97,5 +104,26 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver()
     {
         return isGameOver;
+    }
+
+    IEnumerator ShowInitialDialogue()
+    {
+        // Esperar un momento
+        yield return new WaitForSeconds(0.5f);
+
+        // Verificar si es primera vez (high score = 0)
+        if (scoreManager != null && scoreManager.HighScore == 0)
+        {
+            // Verificar que hay diálogo configurado
+            if (initialDialogue != null && initialDialogue.lines.Length > 0)
+            {
+                // Mostrar diálogo
+                DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+                if (dialogueManager != null)
+                {
+                    dialogueManager.StartDialogue(initialDialogue);
+                }
+            }
+        }
     }
 }

@@ -41,6 +41,11 @@ public class Player : MonoBehaviour
         if (gameManager != null && gameManager.IsGameOver())
             return;
 
+        // Verificar si hay diálogo activo
+        DialogueManager dialogueManager = DialogueManager.instance;
+        if (dialogueManager != null && dialogueManager.isDialogueActive)
+            return;
+
         // Si ya está en movimiento, no hacer nada aún
         if (isMoving)
             return;
