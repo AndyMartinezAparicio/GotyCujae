@@ -97,6 +97,11 @@ public class GameManager : MonoBehaviour
         // Reiniciar el tiempo si lo detuviste
         // Time.timeScale = 1f;
 
+        if (GameSessionManager.Instance != null)
+        {
+            GameSessionManager.Instance.StartedFromMainMenu = false;
+        }
+
         // Recargar la escena actual
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -109,20 +114,28 @@ public class GameManager : MonoBehaviour
     IEnumerator ShowInitialDialogue()
     {
         // Esperar un momento
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
+
+        bool shouldShowDialogue = false;
+        
+        if (GameSessionManager.Instance != null)
+        {
+            shouldShowDialogue = GameSessionManager.Instance.StartedFromMainMenu;
+            
+            // Una vez verificado, resetear la bandera para futuros retry
+            GameSessionManager.Instance.StartedFromMainMenu = false;
+        }
 
         // Verificar si es primera vez (high score = 0)
-        if (scoreManager != null && scoreManager.HighScore == 0)
-        {
+       
             // Verificar que hay diálogo configurado
-            if (initialDialogue != null && initialDialogue.lines.Length > 0)
+        if (shouldShowDialogue && initialDialogue != null && initialDialogue.lines.Length > 0)
+        {
+            // Mostrar diálogo
+            DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+            if (dialogueManager != null)
             {
-                // Mostrar diálogo
-                DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
-                if (dialogueManager != null)
-                {
-                    dialogueManager.StartDialogue(initialDialogue);
-                }
+                dialogueManager.StartDialogue(initialDialogue);
             }
         }
     }

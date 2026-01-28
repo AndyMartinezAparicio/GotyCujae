@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
 
     [Header("Settings")]
-    public float typingSpeed = 0.2f;
+    public float typingSpeed = 0.05f;
     public bool isDialogueActive = false;
     
     private Dialogue currentDialogue;

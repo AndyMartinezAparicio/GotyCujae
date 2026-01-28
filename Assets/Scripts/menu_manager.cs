@@ -24,7 +24,12 @@ public class menu_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // Asegurarse de que existe el GameSessionManager
+        if (GameSessionManager.Instance == null)
+        {
+            GameObject sessionObj = new GameObject("GameSessionManager");
+            sessionObj.AddComponent<GameSessionManager>();
+        }
     }
 
     // Update is called once per frame
@@ -35,12 +40,22 @@ public class menu_manager : MonoBehaviour
 
     public void BotonStart()
     {
+        if (GameSessionManager.Instance != null)
+        {
+            GameSessionManager.Instance.StartedFromMainMenu = true;
+        }
+
         SceneManager.LoadScene(1);
     }
 
     public void BotonBack()
     {
         SceneManager.LoadScene(0);
+
+        if (GameSessionManager.Instance != null)
+        {
+            GameSessionManager.Instance.StartedFromMainMenu = false;
+        }
     }
 
     public void BotonSalir()
