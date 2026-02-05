@@ -60,17 +60,17 @@ public class Player : MonoBehaviour
             InstanceSoundStep();
             direction = Vector2.up;
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > Camera.main.transform.position.y - 3f)
         {
             InstanceSoundStep();
             direction = Vector2.down;
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -7f)
         {
             InstanceSoundStep();
             direction = Vector2.left;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 7f)
         {
             InstanceSoundStep();
             direction = Vector2.right;
