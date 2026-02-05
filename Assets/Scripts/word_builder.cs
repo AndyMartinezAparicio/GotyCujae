@@ -21,9 +21,9 @@ public class WorldBuilder : MonoBehaviour
     public GameObject bache;
     public GameObject arbol;
     
-    public int maxTreesPerGrass = 3;
-    public float grassObstacleChance = 0.8f; // 80%
-    public float roadObstacleChance = 0.5f;  // 50%
+    public int maxTreesPerGrass = 5;
+    public float grassObstacleChance = 1f; // 100%
+    public float roadObstacleChance = 0.5f;  // 70%
 
     private float minX = -8f;
     private float maxX = 8f;
@@ -64,7 +64,7 @@ public class WorldBuilder : MonoBehaviour
     {
         int rowType;
 
-        if (consecutiveGrass >= 2)
+        if (consecutiveGrass >= 1)
         {
             rowType = 1; // fuerza carretera
         }
@@ -118,11 +118,11 @@ public class WorldBuilder : MonoBehaviour
         if (Random.value > grassObstacleChance)
             return;
 
-        int treeCount = Random.Range(1, maxTreesPerGrass + 1);
+        int treeCount = Random.Range(2, maxTreesPerGrass + 1);
 
         for (int i = 0; i < treeCount; i++)
         {
-            float x = Random.Range(minX, maxX);
+            int x = Random.Range((int)minX, (int)maxX + 1);
             Vector3 pos = new Vector3(x, row.position.y, 0);
 
             Instantiate(arbol, pos, Quaternion.identity, row);
@@ -130,15 +130,19 @@ public class WorldBuilder : MonoBehaviour
     }
 
     void SpawnRoadObstacle(Transform row)
-{
-    if (Random.value > roadObstacleChance)
-        return;
+    {
+        if (Random.value > roadObstacleChance)
+            return;
 
-    float x = Random.Range(minX, maxX);
-    Vector3 pos = new Vector3(x, row.position.y, 0);
+        int bacheCount = Random.Range(1, 3);
+        for (int i = 0; i < bacheCount; i++)
+        {
+            int x = Random.Range((int)minX, (int)maxX + 1);
+            Vector3 pos = new Vector3(x, row.position.y, 0);
 
-    Instantiate(bache, pos, Quaternion.identity, row);
-}
+            Instantiate(bache, pos, Quaternion.identity, row);
+        }
+    }
 
 
 
