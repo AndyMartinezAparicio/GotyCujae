@@ -18,6 +18,8 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        //  DESCOMENTA ESTA LÍNEA Y EJECUTA PARA REINICIAR EL HIGH SCORE
+        //PlayerPrefs.DeleteKey("HighScore");
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         highScoreText.text = "Record: " + highScore;
         scoreText.text = "Score: 0";

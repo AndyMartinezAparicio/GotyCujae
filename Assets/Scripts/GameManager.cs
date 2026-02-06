@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     private bool isGameOver = false;
     private ScoreManager scoreManager;
+    public AudioSource SonidoDeTrafico;
 
     void Awake()
     {
