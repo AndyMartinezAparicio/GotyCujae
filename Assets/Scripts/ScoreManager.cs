@@ -41,6 +41,13 @@ public class ScoreManager : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore", highScore);
             }
         }
+
+        // Ctrl + R → resetea High Score
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerPrefs.DeleteKey("HighScore");
+            Debug.Log("High Score reseteado manualmente");
+        }
     }
 
     public static int GetHighScore()
