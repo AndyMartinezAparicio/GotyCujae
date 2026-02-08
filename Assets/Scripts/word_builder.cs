@@ -102,6 +102,10 @@ public class WorldBuilder : MonoBehaviour
         
         activeRows.Enqueue(row);
 
+        //NO generar obstáculos en la fila inicial
+        if (yIndex == 0)
+            return;
+
         if (type == 0)
         {
             SpawnGrassObstacles(row.transform);
