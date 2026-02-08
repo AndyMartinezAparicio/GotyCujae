@@ -12,6 +12,13 @@ public class Player : MonoBehaviour
     private Vector3 targetPosition;
     private float lastMoveTime = 0f; // Último momento en que se inició un movimiento
 
+    // Teclas virtuales (teclado + móvil)
+    private bool upPressed;
+    private bool downPressed;
+    private bool leftPressed;
+    private bool rightPressed;
+
+
     [Header("Sprites por dirección")]
     public Sprite spriteUp;
     public Sprite spriteDown;
@@ -60,22 +67,22 @@ public class Player : MonoBehaviour
         // Detectar la dirección actual (permitimos mantener la tecla)
         Vector2 direction = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || upPressed)
         {
             InstanceSoundStep();
             direction = Vector2.up;
         }
-        else if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > Camera.main.transform.position.y - 3f)
+        else if ((Input.GetKey(KeyCode.DownArrow) || downPressed) && transform.position.y > Camera.main.transform.position.y - 3f)
         {
             InstanceSoundStep();
             direction = Vector2.down;
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -7f)
+        else if ((Input.GetKey(KeyCode.LeftArrow) || leftPressed) && transform.position.x > -7f)
         {
             InstanceSoundStep();
             direction = Vector2.left;
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 7f)
+        else if ((Input.GetKey(KeyCode.RightArrow) || rightPressed) && transform.position.x < 7f)
         {
             InstanceSoundStep();
             direction = Vector2.right;
@@ -152,4 +159,18 @@ public class Player : MonoBehaviour
         }
 
     }
+
+        // ===== TECLAS VIRTUALES =====
+
+    public void PressUp()    { upPressed = true; }
+    public void PressDown()  { downPressed = true; }
+    public void PressLeft()  { leftPressed = true; }
+    public void PressRight() { rightPressed = true; }
+
+    public void ReleaseUp()    { upPressed = false; }
+    public void ReleaseDown()  { downPressed = false; }
+    public void ReleaseLeft()  { leftPressed = false; }
+    public void ReleaseRight() { rightPressed = false; }
+
+
 }
