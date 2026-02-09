@@ -801,6 +801,7 @@ GameObject:
   - component: {fileID: 147026993}
   - component: {fileID: 147026992}
   - component: {fileID: 147026991}
+  - component: {fileID: 147026994}
   m_Layer: 5
   m_Name: ButtonDown
   m_TagString: Untagged
@@ -910,6 +911,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147026989}
   m_CullTransparentMesh: 1
+--- !u!114 &147026994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147026989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 879528316}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: PressDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 879528316}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: ReleaseDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &159210152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,6 +2160,7 @@ GameObject:
   - component: {fileID: 898614637}
   - component: {fileID: 898614636}
   - component: {fileID: 898614635}
+  - component: {fileID: 898614638}
   m_Layer: 5
   m_Name: ButtonRigth
   m_TagString: Untagged
@@ -2223,6 +2270,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898614633}
   m_CullTransparentMesh: 1
+--- !u!114 &898614638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898614633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 879528316}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: PressRight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 879528316}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: ReleaseRight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &915769776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,6 +3254,7 @@ GameObject:
   - component: {fileID: 1584592647}
   - component: {fileID: 1584592646}
   - component: {fileID: 1584592645}
+  - component: {fileID: 1584592648}
   m_Layer: 5
   m_Name: ButtonLeft
   m_TagString: Untagged
@@ -3271,6 +3364,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584592643}
   m_CullTransparentMesh: 1
+--- !u!114 &1584592648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584592643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 879528316}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: PressLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 879528316}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: ReleaseLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1588819091
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,7 +3703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00030517578, y: 0.97610474}
+  m_AnchoredPosition: {x: 0.00024414062, y: 0.97613525}
   m_SizeDelta: {x: 16.204, y: 11.0894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1764995344
@@ -3924,6 +4062,7 @@ GameObject:
   - component: {fileID: 2085352424}
   - component: {fileID: 2085352423}
   - component: {fileID: 2085352422}
+  - component: {fileID: 2085352425}
   m_Layer: 5
   m_Name: ButtonUp
   m_TagString: Untagged
@@ -4045,6 +4184,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085352420}
   m_CullTransparentMesh: 1
+--- !u!114 &2085352425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085352420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 879528316}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: PressUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 879528316}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: ReleaseUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
