@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Settings")]
     public float typingSpeed = 0.05f;
     public bool isDialogueActive = false;
+    public System.Action OnDialogueFinished;
+
     
     private Dialogue currentDialogue;
     private int currentLineIndex = 0;
@@ -126,6 +128,9 @@ public class DialogueManager : MonoBehaviour
 
         Debug.Log("Diálogo terminado");
         // Puedes añadir aquí un evento para notificar que terminó
+
+        // 👇 Notificar que terminó
+        OnDialogueFinished?.Invoke();
     }
 
     public bool IsDialogueActive()

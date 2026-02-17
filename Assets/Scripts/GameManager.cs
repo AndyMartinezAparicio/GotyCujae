@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public Button restartButton;
 
+    [Header("Mobile Controls")]
+    public GameObject mobileUI;
+
+
     [Header("In-Game UI")]
     public GameObject scoreUI;
 
@@ -76,6 +80,10 @@ public class GameManager : MonoBehaviour
         if (scoreUI != null)
             scoreUI.SetActive(false);
 
+        if (mobileUI != null)
+            mobileUI.SetActive(false);
+
+
         // Mostrar panel de Game Over
         if (gameOverPanel != null)
         {
@@ -136,8 +144,26 @@ public class GameManager : MonoBehaviour
             DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
             if (dialogueManager != null)
             {
+                // 👇 DESACTIVAR CONTROLES
+                if (mobileUI != null)
+                    mobileUI.SetActive(false);
+                
                 dialogueManager.StartDialogue(initialDialogue);
+                dialogueManager.OnDialogueFinished += EnableMobileUI;
+
             }
         }
+        else
+        {
+            EnableMobileUI();
+        }
+
     }
+
+    void EnableMobileUI()
+    {
+        if (mobileUI != null)
+            mobileUI.SetActive(true);
+    }
+
 }
